@@ -1,5 +1,4 @@
 ---
-title: C++ Functions
 ---
 
 \#coding #cpp #samsTeachYourself

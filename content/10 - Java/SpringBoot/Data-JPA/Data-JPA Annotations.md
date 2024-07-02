@@ -1,5 +1,4 @@
 ---
-title: Data-JPA Annotations
 ---
 
 [@Entity](Data-JPA%20Entity.md)  

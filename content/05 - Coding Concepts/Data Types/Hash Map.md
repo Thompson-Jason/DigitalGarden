@@ -1,5 +1,4 @@
 ---
-title: Hash Map
 ---
 
 A hash map is a specific kind of [map](Map.md) which 

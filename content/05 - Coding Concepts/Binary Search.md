@@ -1,5 +1,4 @@
 ---
-title: Binary Search
 ---
 
 Binary search is a fairly simple search algorithm but it can only be done on *SORTED* data. (like the phonebook example Dr.Blaheta gave in 162)

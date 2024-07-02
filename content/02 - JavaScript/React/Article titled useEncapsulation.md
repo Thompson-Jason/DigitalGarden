@@ -1,5 +1,4 @@
 ---
-title: Article titled useEncapsulation
 ---
 
 Recently, I shared this tweet:

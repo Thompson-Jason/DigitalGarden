@@ -1,5 +1,4 @@
 ---
-title: CSS Value Types
 ---
 
 In CSS Documentation Value/Data Types are often written in angle brackets '\<\>' this doesn't mean that they are html elements it just gives a distinction between a css property and a data type

@@ -1,5 +1,4 @@
 ---
-title: Hibernate Auto DDL
 ---
 
 Hibernate creates your db for you so there is no need for a db schema 

@@ -1,5 +1,4 @@
 ---
-title: Breadth First Search
 ---
 
 Breadth First Search or BFS is a type of [Graph Traversal](Graph%20Traversal.md). 

@@ -1,5 +1,4 @@
 ---
-title: React Hooks
 ---
 
 React comes with a whole bunch of built in hooks with the ability to create our own hooks

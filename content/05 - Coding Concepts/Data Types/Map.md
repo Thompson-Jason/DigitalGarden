@@ -1,5 +1,4 @@
 ---
-title: Map
 ---
 
 A map is a datatype that stores "key value pairs"

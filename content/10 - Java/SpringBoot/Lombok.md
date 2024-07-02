@@ -1,5 +1,4 @@
 ---
-title: Lombok
 ---
 
 The Lombok library helps generate boiler plate code for POJO classes (during compile time)

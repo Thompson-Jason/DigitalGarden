@@ -1,5 +1,4 @@
 ---
-title: Decimal
 ---
 
 These are the numbers that we would typically use on a day-to-day basis this is know as a   

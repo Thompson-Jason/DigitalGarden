@@ -1,5 +1,4 @@
 ---
-title: Why do computers use binary
 ---
 
 The [Binary](Binary.md) system has been in widespread use for a comparatively short period of time. Its use has been accelerated by the development of electronics and computers. The evolution of electronics and electronic components resulted in a system that detected states of a component as being ON (that is, under a significant potential difference or voltage) or OFF (that is, no or low potential difference)

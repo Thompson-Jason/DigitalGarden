@@ -1,7 +1,6 @@
 ---
 tags:
 - '#metadata'
-title: Terms
 ---
 
 

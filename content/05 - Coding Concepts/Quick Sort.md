@@ -1,5 +1,4 @@
 ---
-title: Quick Sort
 ---
 
 In quick sort algorithms you need to pick a pivot. A pivot is typically chosen to be the last element of the list

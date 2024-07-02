@@ -1,5 +1,4 @@
 ---
-title: Heaps
 ---
 
 Heaps come in two different forms a min heap and a max heap. This will be talking about a min heap but a max heap is just the same thing in reverse. 

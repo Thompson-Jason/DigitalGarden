@@ -1,5 +1,4 @@
 ---
-title: Binary
 ---
 
 A system with a base-2 is a binary system. The binary numeral system allows only two states and is represented by the numbers 0 and 1. 

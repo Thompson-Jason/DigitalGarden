@@ -1,5 +1,4 @@
 ---
-title: Component Life Cycle
 ---
 
 ## Initialization

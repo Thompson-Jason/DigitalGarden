@@ -1,5 +1,4 @@
 ---
-title: Project Navigator
 ---
 
 The column shown on the left side of [Xcode](Xcode.md) 

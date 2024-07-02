@@ -1,5 +1,4 @@
 ---
-title: Closures
 ---
 
 Closures are a special type of function that are created in-line so that you can actually pass them to another function. 

@@ -1,5 +1,4 @@
 ---
-title: Swift UI
 ---
 
 SwiftUI is a user interface framework created by Apple to make iphone apps

@@ -1,5 +1,4 @@
 ---
-title: Threading vs. multiprocessing
 ---
 
 \#coding

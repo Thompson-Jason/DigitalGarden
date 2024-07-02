@@ -1,5 +1,4 @@
 ---
-title: Linked List
 ---
 
 Similar to [Arrays](Arrays.md) in that they are also a ordered list

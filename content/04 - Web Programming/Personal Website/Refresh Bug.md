@@ -1,7 +1,9 @@
 ---
 tags:
 - '#bug'
-title: Refresh Bug
+- project
+- website
+title: Personal Website Refresh Bug
 ---
 
 

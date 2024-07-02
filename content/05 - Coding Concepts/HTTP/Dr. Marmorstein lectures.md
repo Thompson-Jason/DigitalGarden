@@ -1,5 +1,4 @@
 ---
-title: Dr. Marmorstein lectures
 ---
 
 * [Lecture 1: HTTP and HTML 5](https://www.youtube.com/watch?v=ttGYEDcdp8c)

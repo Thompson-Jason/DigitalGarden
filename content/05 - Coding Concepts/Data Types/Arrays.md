@@ -1,5 +1,4 @@
 ---
-title: Arrays
 ---
 
 Arrays are fast at reading elements

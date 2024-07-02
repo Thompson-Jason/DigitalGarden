@@ -1,5 +1,4 @@
 ---
-title: Swift Structs
 ---
 
 A struct is similar to a C++ Struct. You are essentially just creating your own data type
@@ -46,7 +45,7 @@ A constructor will have the keyword "init" which would be the only keyword for t
 
 Structs also have [Computed Properties](../02%20-%20JavaScript/Computed%20Properties.md)
 
-So far all the structs above have been [immutable](../05%20-%20Coding%20Concepts/immutable.md) 
+So far all the structs above have been [immutable](../05%20-%20Coding%20Concepts/Immutable.md) 
 
 How would a *mutable* struct look like?
 

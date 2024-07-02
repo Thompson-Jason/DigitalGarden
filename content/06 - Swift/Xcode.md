@@ -1,5 +1,4 @@
 ---
-title: Xcode
 ---
 
 The IDE create by Apple used to develop [Swift](Swift.md) Applications. It also has a iPhone (and other) simulators so that you can test your app on a simulated phone/watch/ipad/tv?

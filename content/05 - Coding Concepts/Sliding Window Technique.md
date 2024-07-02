@@ -1,5 +1,4 @@
 ---
-title: Sliding Window Technique
 ---
 
 

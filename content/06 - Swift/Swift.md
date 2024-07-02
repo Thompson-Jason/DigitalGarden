@@ -1,5 +1,4 @@
 ---
-title: Swift
 ---
 
 Swift is the programming language created by Apple to create apps on their systems.  

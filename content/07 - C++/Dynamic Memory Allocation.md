@@ -1,5 +1,4 @@
 ---
-title: Dynamic Memory Allocation
 ---
 
 \#coding #cpp 

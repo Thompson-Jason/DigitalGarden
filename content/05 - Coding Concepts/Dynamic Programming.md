@@ -1,5 +1,4 @@
 ---
-title: Dynamic Programming
 ---
 
 Dynamic programming is just dividing a problem into subproblems which can then be brought back together to solve the original problem

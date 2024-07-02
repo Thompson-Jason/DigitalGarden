@@ -1,5 +1,4 @@
 ---
-title: reference operator
 ---
 
 \#coding #cpp 

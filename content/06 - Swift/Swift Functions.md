@@ -1,5 +1,4 @@
 ---
-title: Swift Functions
 ---
 
 %% Functions in swift are small bits of code that are to be re-run  %%

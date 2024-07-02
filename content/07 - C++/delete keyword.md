@@ -1,5 +1,4 @@
 ---
-title: delete keyword
 ---
 
 If you don't release allocated memory after you stop needing it that memory remains reserved for you application this causes a *memory leak* and isn't good this can cause your program to run slow or even crash

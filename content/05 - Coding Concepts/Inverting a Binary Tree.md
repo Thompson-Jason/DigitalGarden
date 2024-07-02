@@ -1,5 +1,4 @@
 ---
-title: Inverting a Binary Tree
 ---
 
 Inverting a binary tree has kinda become a meme problem so it probably won't show up in an interview but it is a pretty simple problem to understand if you look at a diagram

@@ -1,5 +1,4 @@
 ---
-title: Required POJO Annotations
 ---
 
 The required annotations to enable a pojo to be used with data-jpa are

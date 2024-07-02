@@ -1,5 +1,4 @@
 ---
-title: CSS Syntax
 ---
 
 # Comments

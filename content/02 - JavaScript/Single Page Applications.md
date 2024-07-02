@@ -1,5 +1,4 @@
 ---
-title: Single Page Applications
 ---
 
 In traditional websites we have multiple web pages that we serve to the customer based on where they go to in the site. 

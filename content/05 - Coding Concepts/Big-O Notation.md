@@ -1,5 +1,4 @@
 ---
-title: Big-O Notation
 ---
 
 Big-O notation is the time complexity of an algorithm 

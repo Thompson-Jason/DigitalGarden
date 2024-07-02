@@ -1,5 +1,4 @@
 ---
-title: goto statement
 ---
 
 \#coding #cpp

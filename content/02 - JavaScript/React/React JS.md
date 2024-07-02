@@ -1,5 +1,4 @@
 ---
-title: React JS
 ---
 
 React is a JS library for implementing UIs

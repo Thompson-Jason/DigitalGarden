@@ -1,5 +1,4 @@
 ---
-title: CSMC 355
 ---
 
 \#schoolnotes #cybersecurity

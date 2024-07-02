@@ -1,5 +1,4 @@
 ---
-title: Pointers
 ---
 
 \#cpp #coding #samsTeachYourself 

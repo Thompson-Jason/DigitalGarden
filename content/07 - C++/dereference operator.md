@@ -1,5 +1,4 @@
 ---
-title: dereference operator
 ---
 
 If you have a pointer containing a valid address you need to use \* the dereference operator to access that data
