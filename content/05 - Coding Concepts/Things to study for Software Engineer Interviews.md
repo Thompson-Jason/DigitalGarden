@@ -26,3 +26,8 @@ tags: []
 [Big-O Notation](Big-O%20Notation.md)
 
 
+
+## Videos to watch
+
+[Graph Algorithms for Technical Interviews - Full Course](https://www.youtube.com/watch?v=tWVWeAqZ0WU) (2 hours)  
+[5 Simple Steps for solving Dynamic Programming Problems](https://www.youtube.com/watch?v=aPQY__2H3tE) (22 mins)
