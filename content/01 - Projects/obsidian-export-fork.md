@@ -3,10 +3,6 @@ tags:
 - project
 ---
 
-
-````toc
-````
-
 # Remove Obsidian Comments
 
  > 

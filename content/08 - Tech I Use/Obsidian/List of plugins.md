@@ -2,10 +2,6 @@
 title: List of Plugins
 ---
 
-
-````toc
-````
-
 # Dataview
 
 To be written

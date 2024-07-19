@@ -6,8 +6,6 @@ tags:
 title: Personal Website Refresh Bug
 ---
 
-
-````table-of-contents
 ````
 
 # Problem
