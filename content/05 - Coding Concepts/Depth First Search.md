@@ -1,4 +1,6 @@
 ---
+tags:
+- thingsToKnow
 ---
 
 The Depth First Search (DFS) is the most fundamental search algorithm used to explore nodes and edges of a graph. It runs with a time complexity of O(V+E) where V is vertices and E is edges and is often used as a building block in other algorithms 

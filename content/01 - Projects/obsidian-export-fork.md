@@ -3,7 +3,13 @@ tags:
 - project
 ---
 
-# Remove Obsidian Comments
+# Overview
+
+obsidian-export is a tool that I use in my workflow to host my digital garden. You can learn more about it at [obsidian-export](../08%20-%20Tech%20I%20Use/Obsidian/obsidian-export.md)
+
+# My Changes
+
+## Remove Obsidian Comments
 
  > 
  > \[!info\] Info  
@@ -41,7 +47,8 @@ pub fn remove_obsidian_comments(_context: &mut Context, events: &mut MarkdownEve
                 if !text.contains("%%"){  
                     if inside_comment{  
                         output.pop();  
-                    }                    continue;  
+                    }                    
+                    continue;  
                 }  
                 output.pop();  
                 if inside_comment{  
@@ -54,7 +61,8 @@ pub fn remove_obsidian_comments(_context: &mut Context, events: &mut MarkdownEve
                     continue;  
                 }  
                 inside_comment = true;  
-            }            _ => {  
+            }            
+            _ => {  
                 if inside_comment{  
                     output.pop();  
                 }
