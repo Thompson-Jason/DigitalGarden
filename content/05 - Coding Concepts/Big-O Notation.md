@@ -1,4 +1,6 @@
 ---
+tags:
+- reformat
 ---
 
 Big-O notation is the time complexity of an algorithm 
@@ -22,4 +24,4 @@ O(2^n) This is most common when doing recursion as the work doubles as it goes f
 
 O(sqrt(n)) This is a pretty rare time complexity it really only occurs when you are trying to get all the factors of a number. You would loop through every number from 1 to the sqrt(n) checking if that number is a factor. since you only go up to the sqrt(n) that makes the time complexity O(sqrt(n))
 
-O(n!) This is the largest complexity and is also really rare and doesn't come up a lot. 
+O(n!) This is the largest complexity and is also really rare and doesn't come up a lot.

@@ -3,7 +3,7 @@
 
 Breadth First Search or BFS is a type of [Graph Traversal](Graph%20Traversal.md). 
 
-The idea of BFS is we will start at a vertex then visit *ALL* vertices of distance 1 from that vertex (all vertices that are connected to that vertex) 
+The idea of BFS is we will start at a vertex then visit *ALL* vertices of distance 1 from that vertex (all vertices that are connected to that vertex) Then move on to the next vertex and repeat until we have checked *ALL* vertices. 
 
 ![BFS.gif](../99%20-%20Meta/Assets/BFS.gif)
 

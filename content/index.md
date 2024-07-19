@@ -3,7 +3,7 @@ title: Jason's Digital Garden
 ---
 
 > [!caution]
-> This Digital Garden is still being planted so some things might break or not formatted correctly.
+> This Digital Garden is still being planted so some things might break or might not be formatted correctly.
 
 This is a garden of _most_ of my notes. I keep various things here from concepts I am learning to recipes I want to try.
 

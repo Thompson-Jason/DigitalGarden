@@ -7,7 +7,7 @@ Dynamic programming is just dividing a problem into subproblems which can then b
 1. Whats the base case?
 1. Find recursive formula for general solution
 
-Not every Dynamic Programming problem needs to be solved by *recursion* it isn't even always the best solution but you can usually solve the problem with recursion
+Not every Dynamic Programming problem needs to be solved by [recursion](Recursion.md) it isn't even always the best solution but you can usually solve the problem with recursion
 
 For instance the classic problem of getting the nth Fibonacci number this is easily solved by dynamic programming and is made *WAY* better using *Memoization*
 

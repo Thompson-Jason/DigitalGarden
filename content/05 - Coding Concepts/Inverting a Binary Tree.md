@@ -5,7 +5,7 @@ Inverting a binary tree has kinda become a meme problem so it probably won't sho
 
 ![Invert_Binary_Tree.png](../99%20-%20Meta/Assets/Invert_Binary_Tree.png)
 
-The root stays the same and you are just *recursively* swapping the children. 
+The root stays the same and you are just [recursively](Recursion.md) swapping the children. 
 
 So you would need to switch the left and right children of the root then recursively call that function again with each child as the root to then swap their children and so on. 
 

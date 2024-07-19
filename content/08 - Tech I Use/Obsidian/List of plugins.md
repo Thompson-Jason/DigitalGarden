@@ -1,8 +1,9 @@
 ---
+title: List of Plugins
 ---
 
 
-````table-of-contents
+````toc
 ````
 
 # Dataview
@@ -12,5 +13,3 @@ To be written
 # Automatic Table of Contents
 
 To be written
-
-* 

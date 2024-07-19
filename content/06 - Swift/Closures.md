@@ -3,7 +3,7 @@
 
 Closures are a special type of function that are created in-line so that you can actually pass them to another function. 
 
-%% This sounds kinda like a predicate in Java  %%
+
 
 I am going to break up a closure statement here so it is a little easier 
 

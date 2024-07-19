@@ -1,7 +1,7 @@
 ---
 ---
 
-%% Functions in swift are small bits of code that are to be re-run  %%
+
 
 Functions in [Swift](Swift.md) are started with the keyword *func* so a basic Swift function signature would look like 
 
