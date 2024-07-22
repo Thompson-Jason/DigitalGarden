@@ -6,8 +6,6 @@ tags:
 title: Personal Website Refresh Bug
 ---
 
-````
-
 # Problem
 
 Site seems to work as expected and when navigating around the site using the buttons (like in the nav bar and such) I can move between pages. However, when refreshing the page (⌘ + r) I would receive a 404 error.

@@ -25,8 +25,6 @@ tags: []
 [Insertion Sort](Insertion%20Sort.md)  
 [Big-O Notation](Big-O%20Notation.md)
 
-
-
 ## Videos to watch
 
 [Graph Algorithms for Technical Interviews - Full Course](https://www.youtube.com/watch?v=tWVWeAqZ0WU) (2 hours)  

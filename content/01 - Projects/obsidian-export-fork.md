@@ -5,70 +5,107 @@ tags:
 
 # Overview
 
-obsidian-export is a tool that I use in my workflow to host my digital garden. You can learn more about it at [obsidian-export](../08%20-%20Tech%20I%20Use/Obsidian/obsidian-export.md)
+obsidian-export is a tool that I use in my workflow to host my digital garden. You can learn more about it at [obsidian-export](../08%20-%20Tech%20I%20Use/Obsidian/obsidian-export.md). You can find the source code of my fork on my [Github](https://github.com/Thompson-Jason/obsidian-export). 
 
 # My Changes
 
 ## Remove Obsidian Comments
 
- > 
- > \[!info\] Info  
- > Examples here have a space between the first and second % this is to avoid them from being removed before the escape character is implemented
-
-I added a new command line flag *--remove-obsidian-comments* This is implemented as a post_processor removing anything between two % which Obsidian uses to denote comments
+I added a new command line flag *--remove-obsidian-comments* This is implemented as a post_processor removing anything between two % which Obsidian uses to denote comments. However if the comment is within a code block (as seen below) it won't be removed. 
 
 ````md
 This isn't a comment
-% % This is a comment % %
+%% This is a comment %%
 ````
 
-The current version of this post-processor removes in-line comments as-well as block comments but it does not support escape characters yet. The plan is to add the "\\" as the escape character so I can have mock comments in my notes. 
+I use regex in-order to find the comments in the text. 
 
-````md
-% % This comment would be removed % %
-
-% %
-This comment would also be removed 
-% %
-
-\% % This comment wouldn't be removed \% %
-````
-
-## Source Code
+### Source Code
 
 ````rust
-pub fn remove_obsidian_comments(_context: &mut Context, events: &mut MarkdownEvents) -> PostprocessorResult {  
+pub fn remove_obsidian_comments(  _context: &mut Context, events: &mut MarkdownEvents,  ) -> PostprocessorResult {  
     let mut output = Vec::with_capacity(events.len());  
     let mut inside_comment = false;  
+    let mut inside_codeblock = false;  
+  
     for event in &mut *events {  
         output.push(event.to_owned());  
+  
         match event {  
-            Event::Text((ref text)) => {  
-                if !text.contains("%%"){  
-                    if inside_comment{  
+            Event::Text(ref text) => {  
+                if !text.contains("%%") {  
+                    if inside_comment {  
                         output.pop();  
                     }                    
                     continue;  
-                }  
-                output.pop();  
-                if inside_comment{  
+                } else if inside_codeblock {  
                     continue;  
                 }  
-                if !text.eq(&CowStr::from("%%")){  
-                    let re = Regex::new(r"").unwrap();  
+                output.pop();  
+
+                if inside_comment {  
+                    inside_comment = false;  
+                    continue;  
+                }  
+                if !text.eq(&CowStr::from("%%")) {  
+                    let re = Regex::new(r"%%.*?%%").unwrap();  
                     let result = re.replace_all(text, "").to_string();  
                     output.push(Event::Text(CowStr::from(result)));  
                     continue;  
                 }  
                 inside_comment = true;  
             }            
+            Event::Start(Tag::CodeBlock(_)) => {  
+                inside_codeblock = true;  
+            }            
+            Event::End(Tag::CodeBlock(_)) => {  
+                inside_codeblock = false;  
+            }  
             _ => {  
-                if inside_comment{  
+                if inside_comment {  
                     output.pop();  
-                }
-            }
-        }
+                }            
+            }        
+        }    
     }  
+    *events = output;  
+    PostprocessorResult::Continue  
+}
+````
+
+## Remove table of contents
+
+In my obsidian vault I have a table of contents at the top of most of my notes. However, I currently host my notes through *Quartz* which offers a table of contents on the right side of the screen. Because of this I don't also need a table of contents on the top so I just remove it from the markdown file before publishing. I originally was going to render the table of contents myself (seen here [Automatic Table of Contents Bug](../04%20-%20Web%20Programming/Personal%20Website/Automatic%20Table%20of%20Contents%20Bug.md)) but I decided this wasn't worth the effort and to just use the quartz table of contents.
+
+This code is heavily borrowed from an example provided by Nick Groenen, creator of obsidian-export. This option is invoked through the flag *--remove-table-of-contents*
+
+### Source Code
+
+````rust
+pub fn remove_toc(_context: &mut Context, events: &mut MarkdownEvents) -> PostprocessorResult {  
+    let mut output = Vec::with_capacity(events.len());  
+  
+    for event in &mut *events {  
+        output.push(event.to_owned());  
+        match event {  
+            Event::Start(Tag::CodeBlock(CodeBlockKind::Fenced(ref language_tag))) => {  
+                if language_tag != &CowStr::from("toc") && language_tag != &CowStr::from("table-of-contents")  {                    
+	                continue;  
+            }                
+            
+            output.pop(); // Remove codeblock start tag that was pushed onto output              
+            }  
+            
+            Event::End(Tag::CodeBlock(CodeBlockKind::Fenced(ref language_tag))) => {  
+                if language_tag == &CowStr::from("toc") && language_tag != &CowStr::from("table-of-contents")  {                    
+	                // The corresponding codeblock start tag for this is replaced with regular  
+                    // text (containing the Hugo shortcode), so we must also pop this end tag.                    
+                    output.pop();  
+                }            
+            }            
+            _ => {}  
+        }    
+    }    
     *events = output;  
     PostprocessorResult::Continue  
 }
