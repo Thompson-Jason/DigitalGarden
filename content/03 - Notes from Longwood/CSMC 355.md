@@ -1,7 +1,9 @@
 ---
+tags:
+- schoolnotes
+- cybersecurity
+- unfinished
 ---
-
-\#schoolnotes #cybersecurity
 
 ## Ethics
 

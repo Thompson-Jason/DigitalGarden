@@ -5,7 +5,7 @@ tags: []
 
  > 
  > \[!info\] Info  
- > This is not a comprehensive list. This is a list that I started when I was looking for Software Engineer roles. It provides a good background on a few advanced concepts.
+ > This is not a comprehensive list. This is a list that I started when I was looking for Software Engineer roles. It provides a good background on a few advanced concepts that you could see in a technical interview/assesment.
 
 ## For General Interviews
 

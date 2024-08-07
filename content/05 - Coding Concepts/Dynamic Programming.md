@@ -1,4 +1,6 @@
 ---
+tags:
+- thingsToKnow
 ---
 
 Dynamic programming is just dividing a problem into subproblems which can then be brought back together to solve the original problem
@@ -23,4 +25,4 @@ def fib(n, memo):
 	return result
 ````
 
-In order to get the nth number of the Fibonacci sequence you need to know n-1 and n-2. We use memoization to "save" previous computed values so we don't always have to compute them again if they have already been computed. We just save them to the memo list and look them up if needed. 
+In order to get the nth number of the Fibonacci sequence you need to know n-1 and n-2. We use memoization to "save" previous computed values so we don't always have to compute them again if they have already been computed. We just save them to the memo list and look them up if needed.

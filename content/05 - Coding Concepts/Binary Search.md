@@ -1,6 +1,7 @@
 ---
 tags:
 - thingsToKnow
+- unfinished
 ---
 
 Binary search is a fairly simple search algorithm but it can only be done on *SORTED* data. 

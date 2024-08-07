@@ -1,6 +1,7 @@
 ---
 tags:
 - project
+- rust
 ---
 
 # Overview
@@ -11,7 +12,7 @@ obsidian-export is a tool that I use in my workflow to host my digital garden. Y
 
 ## Remove Obsidian Comments
 
-I added a new command line flag *--remove-obsidian-comments* This is implemented as a post_processor removing anything between two % which Obsidian uses to denote comments. However if the comment is within a code block (as seen below) it won't be removed. 
+I added a new command line flag *--comments=\[keep-unchanged|remove\]* This is implemented as a post_processor removing anything between two % which Obsidian uses to denote comments. However if the comment is within a code block (as seen below) it won't be removed. 
 
 ````md
 This isn't a comment
@@ -23,10 +24,14 @@ I use regex in-order to find the comments in the text.
 ### Source Code
 
 ````rust
-pub fn remove_obsidian_comments(  _context: &mut Context, events: &mut MarkdownEvents,  ) -> PostprocessorResult {  
+pub fn remove_obsidian_comments(  
+    _context: &mut Context,  
+    events: &mut MarkdownEvents<'_>,  
+) -> PostprocessorResult {  
     let mut output = Vec::with_capacity(events.len());  
     let mut inside_comment = false;  
     let mut inside_codeblock = false;  
+    let re = LazyCell::new(|| Regex::new(r"%%.*?%%").unwrap());  
   
     for event in &mut *events {  
         output.push(event.to_owned());  
@@ -35,39 +40,61 @@ pub fn remove_obsidian_comments(  _context: &mut Context, events: &mut MarkdownE
             Event::Text(ref text) => {  
                 if !text.contains("%%") {  
                     if inside_comment {  
-                        output.pop();  
-                    }                    
-                    continue;  
-                } else if inside_codeblock {  
+                        output.pop(); //Inside block comment so remove  
+                    }  
                     continue;  
                 }  
+                if inside_codeblock {  
+                    continue; //Skip anything inside codeblocks  
+                }  
+  
                 output.pop();  
-
+  
                 if inside_comment {  
                     inside_comment = false;  
                     continue;  
                 }  
                 if !text.eq(&CowStr::from("%%")) {  
-                    let re = Regex::new(r"%%.*?%%").unwrap();  
                     let result = re.replace_all(text, "").to_string();  
                     output.push(Event::Text(CowStr::from(result)));  
                     continue;  
                 }  
                 inside_comment = true;  
-            }            
+            }         
+               
             Event::Start(Tag::CodeBlock(_)) => {  
-                inside_codeblock = true;  
+                if inside_comment {  
+                    output.pop();  
+                } else {  
+                    inside_codeblock = true;  
+                }            
             }            
+                
             Event::End(Tag::CodeBlock(_)) => {  
-                inside_codeblock = false;  
-            }  
+                if inside_comment {  
+                    output.pop();  
+                } else {  
+                    inside_codeblock = false;  
+                }            
+            }
+                        
+            Event::End(Tag::Paragraph) => {  
+                if output.len() >= 2  
+                    && output.get(output.len() - 2) == Option::from(&Event::Start(Tag::Paragraph))  
+                {                    
+	                // If the comment was the only item on the line remove the start and end  
+                    // paragraph events to remove the \n in the output file.                    output.pop();  
+                    output.pop();  
+                }            
+            }            
+                
             _ => {  
                 if inside_comment {  
                     output.pop();  
                 }            
             }        
         }    
-    }  
+    }    
     *events = output;  
     PostprocessorResult::Continue  
 }
