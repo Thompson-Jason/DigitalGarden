@@ -2,6 +2,9 @@
 title: Jason's Digital Garden
 ---
 
+> [!error]
+> There is currently a bug in obsidian-export (more likely an upstream dependency) that can cause notes that are linked to but not created yet to result in a 404 page when clicked and/or funky formatting. This issue is being tracket [in this GitHub issue](https://github.com/zoni/obsidian-export/issues/267)
+
 > [!caution]
 > This Digital Garden is still being planted so some things might break or might not be formatted correctly.
 
