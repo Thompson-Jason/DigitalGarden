@@ -8,4 +8,4 @@ tags:
 
 THIS IS A TEST
 
-![IMG_1067_HQ.webm](../../99%20-%20Meta/Assets/IMG_1067_HQ.webm)
+![IMG_1067_HQ.webm](https://jasonthompson.org/IMG_1067_HQ.webm)
