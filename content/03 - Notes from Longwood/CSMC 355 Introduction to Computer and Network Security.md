@@ -622,3 +622,37 @@ Allow more fine-grained control over permissions
 * used in windows
 * available in linux
 * can add new "capabilities" too so not limited to "read", "write" and "execute"
+
+## Linux "Attributes"
+
+Change attributes with the `chattr` command
+
+* +a File can only be opened for appending
+* +A File access time is not updated when it is edited/read
+* +d Don't backup this file
+* +i File is immutable It cannot be deleted
+* +s File is erased with 0s when its deleted (doesn't work on ext systems)
+* +u File is **NOT** overwritten when deleted and can be "un erased" (doesn't work on ext filesystems)
+
+## Mandatory Access Control
+
+MAC - permissions on a resource are governed by a policy   
+Used by SELinux
+
+* Developed by the NSA
+* Uses concept of "labels" and "domains"
+  * A Label is a bit like a permission (more like ACL)
+* Different permissions are available on different systems depending on which "modules" have been loaded  
+  Labels are mapped to files and network sockets using a policy file
+
+### SELinux Policies
+
+* Domain: Identifies a group of related processes/programs
+* User: Identifies a particular authentication entity
+* Role: Identifies different "roles" the user can be preforming
+  * manager role
+  * user role
+  * admin role
+  * cleanup role
+* Type: for processes which other processes can access it
+* Label: What can be done to the resource
