@@ -544,3 +544,81 @@ The layout of directories into a logical structure is called the filesystem hier
 Programs are also files
 
 * Processes typically run with the permissions of the user who launched them (all though not always)
+
+## Authorization
+
+Authorization is the process of verifying that an entity has access rights to a particular computing resource
+
+* Files
+* Access to a computer system
+* Devices
+* Memory
+* VMs/containers
+* Network ports  
+  Without Authentication there is no safety
+* Anyone could access anything  
+  Without Authorization there is no liveness 
+
+There are two main types of Authorization Systems
+
+* Discretionary Access Control: permissions on a resource are allowed to change dynamically
+* ==SOMETHING I MISSED IN CLASS==
+
+## Unix File Permissions
+
+In Unix each file is owned by a user **AND** a group
+
+* The owner is often the creator of the file
+
+## File Permissions
+
+Info about permissions is stored in the directory listing
+
+Anyone with raw access to the disk can circumvent these protections
+
+* by booting to a live disk as "root" and changing them
+
+For files
+
+* r: read
+* w: write
+* x: execute  
+  For directories
+* r: list
+* w: create or delete files
+* x: access contents
+
+## Special Permissions Bits
+
+### SetUid bit
+
+* When program is run runs as the owner of the file rather than the current user
+
+### SetGid bit
+
+* When program is run, runs a group owner rather than current group
+* On directories, makes files owned by directory owner rather than current user
+
+### Sticky bit
+
+* For files: used to "lock" a program into memory to force faster loading ==no longer used==
+
+## Initial Permissions
+
+### When we create a new file or directory what permissions should it have?
+
+* Executable programs and directories are executable
+* Nothing else
+
+### What about read and write permissions?
+
+* The "umask" determines the defaults. It lists the permissions to remove from a file
+
+## Access Control Lists (ACLs) ==I used this in the industry==
+
+Allow more fine-grained control over permissions
+
+* more flexible but much more expensive
+* used in windows
+* available in linux
+* can add new "capabilities" too so not limited to "read", "write" and "execute"
