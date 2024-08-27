@@ -8,7 +8,7 @@ tags:
 
  > 
  > \[!info\] Info  
- > Formatting can be improved and will be worked on after I have all the notes transcribed over. I estimate I will have all the notes transcribed by (09/15/2024) or sooner
+ > All content is transcribed. I am currently working on reformatting the notes so they read a little better. Content will move around but no content will be removed.
 
 ## Ethics
 
@@ -1401,3 +1401,237 @@ WPA Enterprise provides RADIUS-based authentication using the IEEE 802.11 protoc
 ### Rate limiting
 
 * Capping the amount of traffic someone can use
+
+## Email
+
+Invented in the early days of the internet  
+Not designed for security  
+Conglomeration of many different protocols
+
+* SMTP: Sending mail
+* POP: downloading mail
+* IMAP: Accessing server-side mailboxes
+* MIME: Format for encoding different formats so they can be transmitted portably across different types of computers with different operating systems
+
+### MUA: Mail User Agent
+
+* Email client can send/receive messages
+
+### MTA: Mail Transport Agent
+
+* Server that sends messages
+
+### MRA: Mail Relay Agent
+
+* Server that passes emails to the next "hop" in the chain
+
+### MDA: Mail Delivery Agent
+
+* Server that stores email until its ready to download
+
+## Problems with email
+
+### Authentication
+
+* Often done in plaintext
+* password snooping is possible
+* subject to replay attacks
+
+### Message Transmission
+
+* Almost always done in plaintext
+* message snooping is possible
+
+Message Storage
+
+### Traffic Analysis
+
+* even if it is encrypted the sender/receiver and other info can't be encrypted 
+
+### Spam
+
+* unsolicited email, phishing, spear phishing
+
+## SPAM
+
+CAN-SPAM Act of 2003
+
+### Classifies SPAM into two categories
+
+* Unsolicited Commercial Email
+* Unsolicited Bulk Email
+
+Requires all commercial email come with an unsubscribe link  
+Prohibits misleading "FROM" headers  
+Bans emailing address harvesting
+
+## Mechanisms for Preventing SPAM
+
+### Enforcing basic system/network security best practices
+
+* Secure the server
+* Secure the client
+* Use VPNs
+* Use end-to-end encryption
+
+### Filtering
+
+* Naive Bayesian classifiers
+* Label messages as either SPAM or HAM
+
+### Bayesian Filter are Fairly easy to circumvent
+
+* Misspell words or addition characters
+* Add lots of legitimate text to reduce the overall spamicity 
+
+### Graylisting
+
+* Don't accept messages until the server has verified the sender
+* Requires making a network connection for each incoming message
+* Slow and subject to DoS attacks
+* But pretty effective
+
+### Tarpitting / Delays
+
+* A spammer needs to send millions of messages
+* Normal users only send a few
+* Introducing random delays into sending messages can really mess up spammers
+* However it could cause problems for legit users
+
+### Sender Verification
+
+* SPF
+  * Matches domain name in from with DNS records
+* DKIM
+  * Uses digitla signature keys distributed over DNS
+* DMARC 
+
+States of a stateful firewall
+
+### A Connection can be in the following states
+
+* NEW: The two hosts have exchanged SYN Packets but the three-way handshake has not been completed
+* ESTABLISHED: The two hosts completed the three-way handshake
+* RELATED: The connection hasn't been established yet but is related to an established connection
+* INVALID: Something is wrong with the connection
+
+### About iptables firewalls
+
+* There are 3 main tables
+  * Filter table: Decides which packets to accept/deny
+  * Nat table: Modifies addresses and port numbers
+  * Mangle table: Modifies other portions of the packet header
+* In the filter table there are 3 chains 
+  * INPUT: packets sent to the pc
+  * OUTPUT: packets sent from the pc
+  * FORWARD: packets sent through the firewall
+* To add a rule, we use `iptables -A`
+* To remove a rule, we use `iptables -D`
+* To set the default policy we use `iptables -P`
+
+### Two kinds of firewalls
+
+* Hast firewall: Run on endpoint such as work station
+* Edge firewall: Runs on a network boundary
+
+## Other Network Security Controls
+
+### Network Intrusion Detection System (NIDS) Program that monitors traffic on a network for malicious activity
+
+* Signature: Identifies known patterns of network traffic
+* Heuristic: Identifies suspicious behavior. looks for anomalies on a network 
+* Generates alerts when it detects something
+
+Network Intrusion Prevention System (NIPS): Software that detects malicious traffic and blocks it
+
+### SIM/SEIM/SIEM System information and events manager
+
+* Collects log files from devices on the network and analyzes them for security events
+* Bro/Rita are log analysis tools
+
+## Cryptography
+
+Cryptography is the art of "secret writing"
+
+### Two kinds of Cryptography
+
+* codes
+* ciphers
+
+## Codes
+
+A Code is a simple system where characters are replaced one-to-one with other characters
+
+### Codes are often used for non security purposes
+
+* Base 64 codes allow binary data to be encoded
+
+### Base 64
+
+In the early internet not all systems supported 8-bit chars
+
+* most text was transferred using 7-bit ASCII codes
+* 8th bit was a control character
+* This means if you used all 8 bits the thing would get corrupted 
+* Solution: Encode the data in a format that used fewer than 8 bits
+
+Split the binary message into blocks of three bytes each block is 24 bits long
+
+Now divide the block into 4 6-bit digits
+
+* 0-25 = A-Z
+* 26-51 = a-z
+* 52-61 = 0-9
+* 62 = +
+* 63 = /
+
+### Problem what if the length of the message isn't a multiple of 3 bytes?
+
+* Solution pad the message with 0's but keep track of how many bytes to remove
+* Represent each byte of padding with an = at the end of the message
+
+## Ciphers
+
+A Cipher is a function which maps a plaintext message to an encoded message in such a way that it is difficult to retrieve the original message without knowledge of the secret key
+
+### Types of Ciphers
+
+* NULL Ciphers
+  * Add additional symbols to try to conceal the message
+  * The "key" is the position of the added symbols
+  * Example: Railfence cipher
+  * Taking the first letter of each word is a null cipher
+* Substitution Ciphers
+  * Each symbol in the message is replaced by another symbol
+  * Example ROT-13 cipher
+  * Other shift cipher ROT-3
+  * Caesars Cipher
+    * Instead of shifting right by 3 shift left by 3
+  * Transposition Ciphers
+    * Change the order of the symbols
+
+## Modern Ciphers
+
+### Public Key Ciphers
+
+* Two Keys
+  * Anything encrypted by the public key can only be decrypted by the private key and vice versa
+  * Certificates
+    * Special documents digitally signed using a private key
+
+### Rivest-Shamir-Adleman
+
+* public key cipher
+* uses the fact multiplying is easy but factoring is hard
+* used by TLS/SSL
+
+### Elliptic Curve Cryptography
+
+* Rivest Cipher Four
+  * Stream cipher invented by Ron Rivest
+* Digital Encryption Standard
+  * used in the 70's with a 56-bit key
+  * the small key size was easily brute forced
+* Advanced Encryption Standard
+  * replaced DES
+  * used keys of 128, 192, or 256 bits
