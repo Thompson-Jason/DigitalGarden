@@ -10,7 +10,7 @@ tags:
  > \[!info\] Info  
  > All content is transcribed. I am currently working on reformatting the notes so they read a little better. Content will move around but no content will be removed.
 
-## Ethics
+# Ethics
 
 Professionals have unique ethical duties  
 Cyber security is a field that requires a high standard of ethics  
@@ -38,6 +38,8 @@ Best practices
 - Don't trust infrastructure  
 - Establish secure defaults
 
+---
+
 ## Risk Management Frameworks
 
 Six step process  
@@ -58,9 +60,11 @@ Contain the damage - change passwords
 Repair/recover  
 Prevent future incidents / close the loop
 
-## Network Attacks
+---
 
-### Spoofing
+# Network Attacks
+
+## Spoofing
 
 * sending a falsified address to make it appear traffic comes from a different system that it really does
 * Easy way to do this
@@ -72,7 +76,7 @@ Prevent future incidents / close the loop
   * You won't get the replies
   * the replies are sent to the spoofed address which will respond with a RST packet tearing down the connection
 
-### DoS (Denial of Service)
+## DoS (Denial of Service)
 
 * A attack in which a system becomes unable to do useful work
 * An attack against a viability
@@ -93,7 +97,7 @@ Prevent future incidents / close the loop
 * Preventing DoS is hard
   * mathematically indistinguishable from a flash crowd
   * Example CNN crashed on 9/11 because everyone was going to check the news 
-* #### Examples of DoS attacks
+* ### Examples of DoS attacks
   
   * WinNUKE
     * Attacked Windows 95 and NT machines by sending a packet marked "UPG" to the NetBIOS (Port 139) A bug caused the system to crash
@@ -103,7 +107,7 @@ Prevent future incidents / close the loop
     * You could crash older systems this way
   * LAND (Local Area Network Denial)
     * By spoofing a TCP SYN packet with the same address and port # from source and destination its possible to make a computer reply to itself in an infinite feedback loop until it crashes 
-* #### Examples of Amplification DoS Attacks
+* ### Examples of Amplification DoS Attacks
   
   * Slow Loris
     * Opens a bunch of HTTP connections to an Apache web server tying up the "thread pool" sends just enough traffic to keep them alive but never completes or closes the request
@@ -113,7 +117,7 @@ Prevent future incidents / close the loop
   * SYN flood
     * send many packets that have the SYN flag set but do not complete the 3-way handshake. The system will fill up its network buffers with incomplete connections and become unable to accept new connections
 
-### Distributed Denial of Service Attack (DDoS)
+## Distributed Denial of Service Attack (DDoS)
 
 * Instead of using amplification use many machines to overwhelm a single target
 * often uses a large botnet of compromised systems
@@ -123,7 +127,7 @@ Prevent future incidents / close the loop
   * TFN
   * Low Orbit Ion Cannon / High Orbit Ion Cannon
 
-### Snooping / Sniffing
+## Snooping / Sniffing
 
 * Anyone connected to the network can "capture" the traffic using Wireshark/tcpdump
 * Often this is for legitimate troubleshooting
@@ -137,28 +141,28 @@ Prevent future incidents / close the loop
   * Aircrack-ng: Wireless packet capture tool that can also crack WEP and WPA keys to decrypt and sniff wireless
   * cain and Abel: Windows only
 
-### Man in the Middle Attack (MitM)
+## Man in the Middle Attack (MitM)
 
 * If an attacker can insert their own system in between yours and a target, they can not only intercept your packets but modify them and send them on
 * This is an attack on integrity
-* #### Tools for MitM
+* ### Tools for MitM
   
   * Ettercan
   * Hak5
   * Wifi Pineapple
   * Packet Squirrel
   * LAN Turtle
-* #### Replay Attacks
+* ### Replay Attacks
   
   * A kind of MitM attack in which someone captures packets and then sends duplicates of a request
   * works even if the packets are encrypted
   * can cause a site to repeat a action
-* #### How to stop/prevent MitM attacks
+* ### How to stop/prevent MitM attacks
   
-  * ##### Router/Gateway
+  * #### Router/Gateway
     
     * Routing rules can mitigate attacks by blocking certain external traffic
-  * ##### Firewalls
+  * #### Firewalls
     
     * Firewalls can implement access control lists that block specific ports, know "bad behaviors"
     * Firewalls can be:
@@ -168,18 +172,20 @@ Prevent future incidents / close the loop
       * packet filters: fast and efficient but can only filter based on info from packet header
       * proxy
       * firewalls / application gateway: Application-layer firewalls that can look ... 
-  * ##### Vulnerability scanners
+  * #### Vulnerability scanners
     
     * Check for vulnerable servers or workstations
     * report which ones need patching or have other known weakness
 
 Exploit: Specially crafted string of data intended to take advantage of a vulnerability 
 
-### Network Session Hijacking
+## Network Session Hijacking
 
 * Uses sequence number prediction to inject packets into an already established connection, bypassing firewalls
 
-## Attacks on Computer Security
+---
+
+# Attacks on Computer Security
 
 * ### Physical Security Compromises
   
@@ -194,54 +200,56 @@ Exploit: Specially crafted string of data intended to take advantage of a vulner
   
   * Malicious software that can infect a system and compromise security
 
-## Physical Security
+---
+
+# Physical Security
 
 * Laptop Theft
 * Vandalism
 * Component Theft
 * Keyloggers
 * Authentication Bypass
-* ### Physical access makes breaking in easier
+* ## Physical access makes breaking in easier
   
   * #### More control over the system
     
-    * Can use external harddrives, USB, Serial ports to access
+    * Can use external hard drives, USB, Serial ports to access
     * Can open case and access drives/buses directly 
     * can change the BIOS/UEFI settings
     * can bypass firewall and other network protections
-  * #### Harder to track
+  * ### Harder to track
     
     * No network logs
     * can give attacker more time to break into system
 * Can cause most damage
   * loss of entire computers
 * Most of our other security controls don't matter if someone can get direct physical access to the system
-* ### Physical Access can bypass security protections
+* ## Physical Access can bypass security protections
   
   * No network protections(firewall) or monitoring
   * Can bypass authentication by booting into an OS using a disk
   * Can bypass boot restrictions by changing BIOS/UEFI
   * can reset BIOS/UEFI passwords by removing battery
 * Can remove hard drive from system and clone it or install it in another system
-* ### Insider Threats
+* ## Insider Threats
   
-  * #### A significant % of computer crime comes from insider threats
+  * ### A significant % of computer crime comes from insider threats
     
     * Disgruntled employees
     * poorly trained users (phishing scams, downloading trojans)
     * industrial espionage
-  * #### Tailgating/Piggy backing
+  * ### Tailgating/Piggy backing
     
     * Attacker bypasses locks, card key access, or other building security protections by following another user into the area
-* ### Key loggers
+* ## Key loggers
   
   * Devices plugged into a system between the computer and keyboard that records key strokes
   * Can use wireless to broadcast info or store info to recover later
   * can steal passwords, cc numbers, other sensitive data
-* ### Have a security policy
+* ## Have a security policy
   
   * Who is allowed to access what and when
-  * #### Secure the building/area
+  * ### Secure the building/area
     
     * Bollards, turn stiles, barricades
     * keys, locks, combination locks, card key access, biometrics
@@ -249,24 +257,26 @@ Exploit: Specially crafted string of data intended to take advantage of a vulner
     * security cameras
     * HVAC systems (prevent computers from environmental threats)
     * EMP Protection
-  * #### Secure the system
+  * ### Secure the system
     
     * Case locks
     * BIOS/UEFI passwords
     * Regular backups
     * Proper erasure of deleted data
       * DBAN Nuke, Degaussing, hardware shredding, ball-peen hammer?
-  * #### Secure your users
+  * ### Secure your users
     
     * Training
     * Having a well documented security policy
     * timely account expiration
-  * #### Multi-layer Security
+  * ### Multi-layer Security
     
     * Don't rely on just ONE mechanism use many different mechanisms in combination to improve security
     * Don't make security too onerous - or users will circumvent it 
 
-## Software Exploits
+---
+
+# Software Exploits
 
 * Any piece of software of reasonable complexity has bugs
   * These bugs can often be exploited to circumvent security protections
@@ -308,18 +318,22 @@ Most modern languages have "array bounds checking" to help protect against this.
   * Stock randomization (ASLR) and *stack canaries*
 * Secure Programming
 
-## Open Source Software
+---
+
+# Open Source Software
 
 Having access to the source code doesn't really help the hacker that much
 
 * They use *fuzzers* that generate lots of random strings  
   In practice, open source software has a much better record
 
-## Malware
+---
+
+# Malware
 
 Malware: Malicious Software -> Mal~~icious~~ ~~Soft~~ware
 
-### Types of malware:
+## Types of malware:
 
 * Trojan horse: designed to look like real software
 * Virus: piece of code copies itself into another program spreading from system to system
@@ -327,7 +341,7 @@ Malware: Malicious Software -> Mal~~icious~~ ~~Soft~~ware
 * Spyware: program that collects info from a system without their knowledge
 * Ransomeware: encrypts files and holds them hostage for money
 
-### Rootkit
+## Rootkit
 
 * Software used by an attacker to hide their tracks
 * Deletes info from system logs to cover its tracks
@@ -335,7 +349,7 @@ Malware: Malicious Software -> Mal~~icious~~ ~~Soft~~ware
 * Sometimes replaces system utilities
 * Often contains "backdoors"
 
-### Virus Payloads
+## Virus Payloads
 
 * Spam servers
 * Backdoors
@@ -344,7 +358,7 @@ Malware: Malicious Software -> Mal~~icious~~ ~~Soft~~ware
 * Crypto Miners
 * Keyloggers
 
-### How Viruses spread
+## How Viruses spread
 
 * Boot sector infections
 * Autorun files
@@ -405,7 +419,9 @@ Malware: Malicious Software -> Mal~~icious~~ ~~Soft~~ware
 * Teach users **NOT** to click links/plug-in flash drive
 * Avoid "fear tactics"
 
-## Social Engineering
+---
+
+# Social Engineering
 
 Uses various psychological techniques such as 
 
@@ -413,7 +429,7 @@ Uses various psychological techniques such as
 * Urgency: Convey a sense of urgency
 * Intimidation make threats to scare users
 
-### Social Engineering takes many forms
+## Social Engineering takes many forms
 
 * Vishing (phishing but over the phone) (real creative name :))
 * Pharming: fake website that looks like real website
@@ -432,7 +448,7 @@ Uses various psychological techniques such as
 * DirBuster: Program that takes a URL and a wordlist and uses the word list to brute force possible URLs
   * Comes with a bunch of default "word lists" that contain common paths for many web apps
 
-### Enumeration tools
+## Enumeration tools
 
 * Nmap
 * Aircracking
@@ -452,12 +468,12 @@ Uses various psychological techniques such as
   Google "Dorks" are short search strings that can often find info about compromised systems  
   Shodan searchable database of everything connected to the internet
 
-### Software for gather and organizing OSINT info
+## Software for gather and organizing OSINT info
 
 * Recon-Ng
 * Maltgo
 
-### Archives
+## Archives
 
 * Archive.org
 * Caches (Google cache)
@@ -465,9 +481,11 @@ Uses various psychological techniques such as
 * Web scrappers  
   Social engineering toolkit creates phishing emails to steal credentials
 
-# Authentication ==IMPORTANT==
+---
 
-### Securing a resource has two parts
+# Authentication
+
+## Securing a resource has two parts
 
 * Authentication: process of verifying the identity of a user
 * Authorization: What a user has access to  
@@ -545,7 +563,9 @@ Programs are also files
 
 * Processes typically run with the permissions of the user who launched them (all though not always)
 
-## Authorization
+---
+
+# Authorization
 
 Authorization is the process of verifying that an entity has access rights to a particular computing resource
 
@@ -562,7 +582,7 @@ Authorization is the process of verifying that an entity has access rights to a 
 There are two main types of Authorization Systems
 
 * Discretionary Access Control: permissions on a resource are allowed to change dynamically
-* ==SOMETHING I MISSED IN CLASS==
+* Mandatory Access Control: 
 
 ## Unix File Permissions
 
@@ -588,33 +608,33 @@ For files
 * w: create or delete files
 * x: access contents
 
-## Special Permissions Bits
+### Special Permissions Bits
 
-### SetUid bit
+#### SetUid bit
 
 * When program is run runs as the owner of the file rather than the current user
 
-### SetGid bit
+#### SetGid bit
 
 * When program is run, runs a group owner rather than current group
 * On directories, makes files owned by directory owner rather than current user
 
-### Sticky bit
+#### Sticky bit
 
 * For files: used to "lock" a program into memory to force faster loading ==no longer used==
 
-## Initial Permissions
+### Initial Permissions
 
-### When we create a new file or directory what permissions should it have?
+#### When we create a new file or directory what permissions should it have?
 
 * Executable programs and directories are executable
 * Nothing else
 
-### What about read and write permissions?
+#### What about read and write permissions?
 
 * The "umask" determines the defaults. It lists the permissions to remove from a file
 
-## Access Control Lists (ACLs) ==I used this in the industry==
+## Access Control Lists (ACLs)
 
 Allow more fine-grained control over permissions
 
@@ -734,6 +754,8 @@ We can isolate each process in any of these ways independently
 However we can also use tools like Docker, LXC, or CoreOS to run programs in an environment that uses all of these to isolate software
 
 This accomplishes many of the same goals as a VM
+
+---
 
 # Enumeration
 
@@ -1503,8 +1525,8 @@ Bans emailing address harvesting
 * SPF
   * Matches domain name in from with DNS records
 * DKIM
-  * Uses digitla signature keys distributed over DNS
-* DMARC 
+  * Uses digital signature keys distributed over DNS
+* DMARC: Domain-based Message Authentication, Reporting, and Conformance.
 
 States of a stateful firewall
 
